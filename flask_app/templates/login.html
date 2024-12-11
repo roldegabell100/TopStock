@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/flask_app/static/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <div >
+            <a href="/index"><button class="btn btn-dark">Home</button></a>
+        </div>
+        <div class="nav justify-content-end" style="margin-top: -40px;">
+            <a href="/register"><button class="btn btn-dark">Register</button></a>
+        </div>
+    </div>
+    <form action='/login/access', method="POST" class="col-6 mx-auto">
+        <h1>Login</h1>
+
+        <div class="form-group">
+            <label for="user_name">email:</label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="" class="form-control">
+        </div>
+        <button class="btn btn-dark">Login</button>
+    </form>
+</body>
+</html>

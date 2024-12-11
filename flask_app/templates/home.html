@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/flask_app/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        <a href="/login" ><button class="btn btn-dark">login</button></a>
+        <a href="/register"><button class="btn btn-dark">Register</button></a>
+        <div class="nav justify-content-end" style="margin-top: -40px;">
+            <form>
+                <input  type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="movers">
+            <h3>Todays Movers</h3>
+            <table class="table table-hover">
+                <header class="table_heandre">
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>High Price</th>
+                    <th>Low Price</th>
+                    <th>Action</th>
+                </header>
+                <tbody>
+                    {% for stock in stock %}
+                    <tr>
+                        <td>{{stock.name}}</td>
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.last}}</td>
+                        <td>${{stock.high}}</td>
+                        <td>${{stock.low}}</td>
+                        <td>
+                            <form action="/watchlist" method="post" class="col-6 mx-auto">
+                                <input type="hidden" name="symbol" value="{{stock.symbol}}">
+                            <button class="btn btn-dark">Add to Watchlist</button>
+                            </form>
+                        </td>                    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="Recomended">
+            <h3>Recomended</h3>
+            <table class="table table-hover">
+                <header class="table_heandre">
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>High Price</th>
+                    <th>Low Price</th>
+                    <th>Action</th>
+                </header>
+                <tbody>
+                    <tr>
+                        <td>{{stock.name}}</td>
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.stockprice}}</td>
+                        <td>${{stock.open_price}}</td>
+                        <td>${{stock.high_price}}</td>
+                        <td>${{stock.low_price}}</td>
+                        <td>${{stock.close_price}}</td>
+                        <td><a href="/washlist"><button class="btn btn-dark">Add to Watch list</button></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mist_popular">
+            <h3>Most Popular</h3>
+            <table class="table table-hover">
+                <header class="table_heandre">
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>High Price</th>
+                    <th>Low Price</th>
+                    <th>Action</th>
+                </header>
+                <tbody>
+                    <tr>
+                        <td>{{stock.name}}</td>
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.stockprice}}</td>
+                        <td>${{stock.open_price}}</td>
+                        <td>${{stock.high_price}}</td>
+                        <td>${{stock.low_price}}</td>
+                        <td>${{stock.close_price}}</td>
+                        <td>
+                            <form action="/watchlist" method="post" class="col-6 mx-auto">
+                                <input type="hidden" name="symbol" value="{{stock.symbol}}">
+                            <button class="btn btn-dark">Add to Watchlist </button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <div>
+</body>
+</html>
